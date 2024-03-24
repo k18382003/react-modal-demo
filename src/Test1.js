@@ -1,11 +1,8 @@
 import ReactModal from 'summer-ui-react-modal';
 import { useState } from 'react';
-import './App.css';
-import { Test1 } from './Test1';
-import { Test2 } from './Test2';
-import { Test3 } from './Test3';
+import './Test1.css';
 
-function App() {
+export const Test1 = () => {
   const [show, setShow] = useState(false);
 
   const handleDelete = () => {
@@ -16,19 +13,17 @@ function App() {
   };
 
   return (
-    <main className='main'>
-      <button onClick={() => setShow(true)}>Delete - Default style</button>
+    <>
+      <button onClick={() => setShow(true)}>
+        Delete - Custom Message style
+      </button>
       <ReactModal
         setShowModal={setShow}
         showModal={show}
         message="Do you want to delete this item?"
         handleAction={handleDelete}
+        messageStyle="custom-msg"
       />
-      <Test1 />
-      <Test2 />
-      <Test3 />
-    </main>
+    </>
   );
-}
-
-export default App;
+};
